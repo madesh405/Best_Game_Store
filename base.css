@@ -1,0 +1,27 @@
+body{ 
+    margin:0; 
+    font-family:Arial; 
+    background-color:lightcyan; 
+    color:black; 
+} 
+ 
+header{ 
+    background-color:darkcyan; 
+    color:white; 
+    padding:20px; 
+    text-align:center; 
+} 
+
+.container{ 
+    width:90%; 
+    max-width:1000px; 
+    margin:auto; 
+    padding:20px; 
+} 
+ 
+.section{ 
+    background-color:skyblue; 
+    padding:20px; 
+    border-radius:10px; 
+    margin-bottom:25px; 
+}
