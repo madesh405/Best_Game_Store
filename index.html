@@ -9,11 +9,21 @@
 <body>
 
     <nav class="navbar">
-        <div class="nav-content">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="about.html" class="nav-link">About Us</a>
-            <a href="contact.html" class="nav-link">Contact</a>
+    <div class="nav-content">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="wishlist.html" class="nav-link" id="nav-wishlist" style="display: none;">My Wishlist</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        
+        <div style="margin-left: auto; display: flex; align-items: center; gap: 15px;">
+            <button id="login-btn" class="deal-btn" style="background: white; color: #333; cursor: pointer;">Login with Google</button>
+            
+            <div id="user-info" style="display: none; align-items: center; gap: 10px;">
+                <img id="user-pic" src="" style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #ff6600;">
+                <button id="logout-btn" style="background: none; border: none; color: #ff6600; cursor: pointer; font-size: 14px;">(Logout)</button>
+            </div>
         </div>
+    </div>
     </nav>
 
     <div class="container">
@@ -70,7 +80,8 @@
     <footer class="site-footer">
         <p>&copy; 2024 The Best Game Store. Powered by CheapShark API.</p>
     </footer>
-
-    <script src="script.js"></script>
+    
+<script type="module" src="firebase-logic.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

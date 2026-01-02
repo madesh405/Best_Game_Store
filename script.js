@@ -36,18 +36,24 @@ async function loadFeatured() {
 
         featuredContainer.innerHTML = deals.map(deal => {
             const savings = Math.round(parseFloat(deal.savings));
-            return `
-                <div class="featured-card" onclick="loadGamePricesByDeal('${deal.gameID}', '${deal.thumb}', '${deal.title.replace(/'/g, "\\'")}')">
-                    <img src="${deal.thumb}" class="featured-thumb" alt="${deal.title}">
-                    <div class="featured-info">
-                        <div class="featured-title">${deal.title}</div>
-                        <div class="featured-price">
-                            ${formatIN(deal.salePrice)}
-                            <span class="discount-tag">-${savings}%</span>
-                        </div>
-                    </div>
-                </div>
-            `;
+return `
+    <div class="featured-card">
+        <img src="${deal.thumb}" class="featured-thumb" onclick="loadGamePricesByDeal('${deal.gameID}', '${deal.thumb}', '${deal.title.replace(/'/g, "\\'")}')">
+        <div class="featured-info">
+            <div class="featured-title">${deal.title}</div>
+            <div class="featured-price">
+                ${formatIN(deal.salePrice)}
+                
+                <button 
+                    onclick="addToWishlist('${deal.gameID}', '${deal.title.replace(/'/g, "\\'")}', '${deal.thumb}', '${formatIN(deal.salePrice)}')"
+                    style="background: transparent; border: 1px solid #ff6600; color: #ff6600; cursor: pointer; border-radius: 50%; width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; margin-left: 10px;">
+                    ❤
+                </button>
+
+            </div>
+        </div>
+    </div>
+`;
         }).join('');
 
     } catch (err) {
