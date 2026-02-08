@@ -276,7 +276,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #ff6600; /* Orange highlight */
+    color: #ff6600; 
 }
 
 .nav-link.active {
