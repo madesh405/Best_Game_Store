@@ -2,7 +2,6 @@
 
 ![Project Status](https://img.shields.io/badge/Status-Live-success)
 ![Tech Stack](https://img.shields.io/badge/Stack-HTML%20|%20CSS%20|%20JS%20|%20Firebase-orange)
-![License](https://img.shields.io/badge/License-MIT-blue)
 
 A modern, responsive web application that helps gamers find the absolute lowest prices for PC games. It aggregates real-time data from over 25+ digital retailers (Steam, Epic Games, Humble Bundle, etc.) and allows users to track their favorite games.
 
@@ -25,7 +24,7 @@ A modern, responsive web application that helps gamers find the absolute lowest 
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** HTML5, CSS3, JavaScript (ES6 Modules).
+* **Frontend:** HTML5, CSS3, JavaScript.
 * **Backend / Database:** Firebase Authentication, Cloud Firestore.
 * **API:** [CheapShark API](https://apidocs.cheapshark.com/) (for game data).
 * **Hosting:** GitHub Pages.
@@ -75,10 +74,6 @@ This project uses Firebase for the backend. The configuration keys are located i
 
 * Game data provided by the awesome **[CheapShark API](https://www.cheapshark.com/)**.
 * Icons and Avatars via Google & UI Avatars.
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
