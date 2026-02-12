@@ -1,4 +1,4 @@
-/* --- RESET & BASE --- */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
@@ -13,18 +13,19 @@ body {
 
 .container {
     width: 100%;
-    max-width: 1000px; /* Widened slightly for grid */
+    max-width: 1000px; 
     padding: 40px 20px;
 }
 
-/* --- HEADER --- */
+/*HEADER*/
 .logo {
     text-align: center;
     font-size: 42px;
     font-weight: 800;
     margin-bottom: 30px;
-    background: linear-gradient(90deg, #ffcc00 0%, #ff6600 100%); /* New Gold/Orange Theme */
+    background: linear-gradient(90deg, #ffcc00 0%, #ff6600 100%); 
     -webkit-background-clip: text;
+    background-clip:text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
 }
@@ -52,10 +53,10 @@ body {
 }
 
 .search-input:focus {
-    border-color: #ff6600; /* Matching new theme */
+    border-color: #ff6600; 
 }
 
-/* --- FEATURED SECTION --- */
+/*FEATURED SECTION*/
 .section-title {
     color: white;
     margin-bottom: 20px;
@@ -123,7 +124,7 @@ body {
     font-size: 12px;
 }
 
-/* --- SEARCH RESULTS --- */
+/*SEARCH RESULTS*/
 .results-list {
     display: grid;
     gap: 15px;
@@ -159,7 +160,7 @@ body {
 .game-info h3 { font-size: 16px; color: white; }
 .click-hint { margin-left: auto; font-size: 12px; color: #ff6600; opacity: 0.7; }
 
-/* --- COMPARISON VIEW --- */
+/*COMPARISON VIEW*/
 #comparison-view {
     display: none;
     animation: fadeIn 0.4s ease;
@@ -197,7 +198,7 @@ body {
 }
 .back-btn:hover { text-decoration: underline; color: white; }
 
-/* --- PRICE TABLE --- */
+/*PRICE TABLE*/
 .price-table {
     width: 100%;
     border-collapse: separate;
@@ -209,7 +210,7 @@ body {
 .price-row:first-child td:first-child { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
 .price-row:last-child td:last-child { border-top-right-radius: 6px; border-bottom-right-radius: 6px; }
 
-/* Best Deal Highlight */
+/*best deal highlight*/
 .best-deal-row {
     background: linear-gradient(90deg, rgba(76, 107, 34, 0.9) 0%, rgba(22, 32, 45, 1) 100%);
     border: 1px solid #a4d007;
@@ -224,7 +225,7 @@ body {
 .price-tag.expensive { color: #c7d5e0; font-size: 16px; }
 
 .deal-btn {
-    background: #ff6600; /* Orange Button */
+    background: #ff6600;
     color: white;
     padding: 8px 15px;
     text-decoration: none;
@@ -246,14 +247,14 @@ body {
     margin-left: 10px;
 }
 
-/* --- NAVIGATION BAR --- */
+/*NAVIGATION BAR*/
 .navbar {
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
     padding: 15px 0;
     margin-bottom: 20px;
     border-bottom: 1px solid #3d4450;
-    backdrop-filter: blur(10px); /* Glass effect */
+    backdrop-filter: blur(10px);
 }
 
 .nav-content {
@@ -284,7 +285,7 @@ body {
     border-bottom: 2px solid #ff6600;
 }
 
-/* --- NEW: STATS BAR --- */
+/*STATS BAR */
 .stats-bar {
     display: flex;
     justify-content: space-around;
@@ -313,12 +314,12 @@ body {
     letter-spacing: 1px;
 }
 
-/* --- NEW: FOOTER --- */
+/*FOOTER*/
 .site-footer {
     width: 100%;
     text-align: center;
     padding: 30px;
-    margin-top: auto; /* Pushes footer to bottom */
+    margin-top: auto; 
     background: #12141a;
     color: #565d66;
     font-size: 14px;

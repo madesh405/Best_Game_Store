@@ -3,7 +3,7 @@ const EXCHANGE_RATE = 87; // 1 USD = ~87 INR
 
 let storeMap = {}; 
 
-// Helper: Convert USD to INR and format
+//convert USD to INR and format
 function formatIN(usdPrice) {
     if (!usdPrice) return 'FREE';
     const inr = parseFloat(usdPrice) * EXCHANGE_RATE;
@@ -11,7 +11,7 @@ function formatIN(usdPrice) {
     return '₹' + Math.round(inr).toLocaleString('en-IN');
 }
 
-// 1. Initialize
+//initialize
 async function init() {
     try {
         const res = await fetch(`${API_BASE}/stores`);
@@ -26,11 +26,11 @@ async function init() {
     } catch (err) { console.error("Failed to load stores"); }
 }
 
-// 2. Load Featured (Metacritic > 75 to ensure quality)
+//load Featured (Metacritic > 75 to ensure quality)
 async function loadFeatured() {
     const featuredContainer = document.getElementById('featured-grid');
     try {
-        // Added &metacritic=75 to remove junk/DLCs
+        //added &metacritic=75 to remove junk/DLCs
         const res = await fetch(`${API_BASE}/deals?pageSize=8&sortBy=Deal Rating&onSale=1&metacritic=75`);
         const deals = await res.json();
 
@@ -61,12 +61,11 @@ return `
     }
 }
 
-// 3. Load Budget Games (Upper price $10 USD ≈ ₹870 INR)
+//load Budget Games (Upper price $10 USD ≈ ₹870 INR)
 async function loadBudgetGames() {
     const budgetContainer = document.getElementById('budget-grid');
     try {
-        // Added &metacritic=60 to ensure they are real games, not DLCs
-        // &upperPrice=10 means games under ~$10 (approx ₹870)
+        // added &metacritic=60 to ensure real games only. No DLCs or junk.
         const res = await fetch(`${API_BASE}/deals?upperPrice=10&pageSize=4&sortBy=Savings&onSale=1&metacritic=60`);
         const deals = await res.json();
 
@@ -91,7 +90,7 @@ async function loadBudgetGames() {
     }
 }
 
-// 4. Search Logic
+//search Logic
 const searchInput = document.getElementById('search-input');
 searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') performSearch();
@@ -135,7 +134,7 @@ function renderSearchResults(games) {
     `).join('');
 }
 
-// 5. Load Prices Helper
+//load Prices Helper
 function loadGamePricesByDeal(gameID, thumb, title) {
     document.getElementById('featured-section').style.display = 'none';
     loadGamePrices(gameID, thumb, title);
@@ -154,7 +153,7 @@ async function loadGamePrices(gameID, thumb, title) {
         const res = await fetch(`${API_BASE}/games?id=${gameID}`);
         const data = await res.json();
 
-        // Sort deals by price
+        //sort deals by price
         const deals = data.deals.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
         document.getElementById('store-count').innerText = deals.length;
         renderPriceTable(deals);
@@ -191,7 +190,7 @@ function renderPriceTable(deals) {
     }).join('');
 }
 
-// 6. Back Button
+// back button
 function clearComparison() {
     document.getElementById('comparison-view').style.display = 'none';
     const searchVal = document.getElementById('search-input').value;
