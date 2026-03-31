@@ -13,7 +13,8 @@ A modern, responsive web application that helps gamers find the absolute lowest 
 ## ✨ Key Features
 
 * **🔍 Global Search:** Instantly search for any game and see prices from all major stores.
-* **📊 Price Comparison:** Compare prices side-by-side to ensure you get the best deal.
+* **💵 Price Comparison:** Compare prices side-by-side to ensure you get the best deal.
+* **📊 Visual price comparison graph (Canvas-based)
 * **💎 Budget Corner:** Curated "Gems under ₹900" section for budget-conscious gamers.
 * **👤 User Authentication:** Secure Google Sign-In powered by **Firebase Auth**.
 * **❤️ Cloud Wishlist:** Save games to your personal wishlist. Data is stored in **Cloud Firestore**, so it syncs across devices.
