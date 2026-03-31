@@ -134,13 +134,13 @@ function renderSearchResults(games) {
     `).join('');
 }
 
-//load Prices Helper
 function loadGamePricesByDeal(gameID, thumb, title) {
     document.getElementById('featured-section').style.display = 'none';
     loadGamePrices(gameID, thumb, title);
 }
 
 async function loadGamePrices(gameID, thumb, title) {
+    chartAnimated=false;
     document.getElementById('results-container').style.display = 'none';
     const compView = document.getElementById('comparison-view');
     compView.style.display = 'block';
@@ -188,9 +188,10 @@ function renderPriceTable(deals) {
             </tr>
         `;
     }).join('');
+    drawBarChart(deals);
 }
 
-// back button
+
 function clearComparison() {
     document.getElementById('comparison-view').style.display = 'none';
     const searchVal = document.getElementById('search-input').value;
@@ -202,3 +203,80 @@ function clearComparison() {
 }
 
 init();
+
+let chartAnimated=false;
+
+function drawBarChart(deals){
+    const canvas=document.getElementById('price-chart');
+    if(!canvas)return;
+
+    const ctx=canvas.getContext('2d');
+
+    canvas.width=canvas.offsetWidth;
+    canvas.height=320;
+
+    deals=deals.slice(0,6);
+
+    const prices=deals.map(d=>parseFloat(d.price));
+    const stores=deals.map(d=>(storeMap[d.storeID]||"Store"));
+
+    const maxPrice=Math.max(...prices);
+
+    const barHeight=30;
+    const gap=20;
+    const startY=40;
+
+    let progress=0;
+
+    function animate(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+
+        deals.forEach((deal,i)=>{
+            const price=parseFloat(deal.price);
+            const targetWidth=(price/maxPrice)*(canvas.width-200);
+
+            const eased=1-Math.pow(1-progress,3);
+            const barWidth=targetWidth*eased;
+
+            const y=startY+i*(barHeight+gap);
+
+            const grad=ctx.createLinearGradient(0,0,barWidth,0);
+
+            if(i===0){
+                grad.addColorStop(0,"#00ffcc");
+                grad.addColorStop(1,"#006655");
+            }else{
+                grad.addColorStop(0,"#ff8844");
+                grad.addColorStop(1,"#663300");
+            }
+
+            ctx.fillStyle=grad;
+            ctx.shadowColor=i===0?"#00ffcc":"#ff6600";
+            ctx.shadowBlur=10;
+            ctx.fillRect(150,y,barWidth,barHeight);
+            ctx.shadowBlur=0;
+
+            ctx.fillStyle="#fff";
+            ctx.font="13px Arial";
+
+            ctx.fillText(stores[i],10,y+20);
+            ctx.fillText("₹"+Math.round(price*87),160+barWidth,y+20);
+        });
+
+        if(progress<1){
+            progress+=0.03;
+            requestAnimationFrame(animate);
+        }
+    }
+
+    const observer=new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting && !chartAnimated){
+                chartAnimated=true;
+                animate();
+            }
+        });
+    },{threshold:0.5});
+
+    observer.observe(canvas);
+}

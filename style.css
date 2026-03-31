@@ -328,3 +328,8 @@ body {
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .loading { text-align: center; color: #8f98a0; margin-top: 20px; }
+
+#price-chart{
+    width:100%;
+    height:320px;
+}
