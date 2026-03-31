@@ -35,6 +35,7 @@ A modern, responsive web application that helps gamers find the absolute lowest 
 
 <img width="1919" height="1034" alt="image" src="https://github.com/user-attachments/assets/8e87dd67-4c8e-4b42-a75a-a1e5a3cd12df" />
 <img width="1919" height="1038" alt="image" src="https://github.com/user-attachments/assets/3d3ce935-1e88-42a5-80e9-6fc821ba2eae" />
+<img width="1919" height="1036" alt="image" src="https://github.com/user-attachments/assets/cb23fb3d-c91e-43ae-a90b-a438cbf2ebfd" />
 
 
 ---
